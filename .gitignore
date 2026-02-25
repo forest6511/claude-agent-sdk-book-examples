@@ -1,0 +1,42 @@
+# 環境変数・シークレット（絶対にコミットしない）
+.env
+.env.*
+!.env.example
+*.key
+*.secret
+*_secret*
+*_key*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# テスト・カバレッジ
+.pytest_cache/
+.coverage
+htmlcov/
+
+# データ・ログ（例の実行で生成されるファイル）
+sessions/
+checkpoints/
+workspace/
+output/
+audit.log
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store

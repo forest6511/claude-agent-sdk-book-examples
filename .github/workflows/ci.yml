@@ -1,0 +1,37 @@
+name: Syntax Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install claude-agent-sdk==0.1.43 anyio anthropic httpx mcp python-dotenv pytest pytest-asyncio
+
+      - name: Syntax check (compile all .py files)
+        run: |
+          find . -name "*.py" -not -path "./.venv/*" | xargs python -m py_compile
+          echo "All Python files passed syntax check."
+
+      - name: Import check (verify imports resolve)
+        run: |
+          python -c "from claude_agent_sdk import query, ClaudeAgentOptions, ClaudeSDKClient, HookMatcher, AgentDefinition, tool, create_sdk_mcp_server; print('Core imports OK')"
+          python -c "from claude_agent_sdk import AssistantMessage, TextBlock, ToolUseBlock, ResultMessage, UserMessage, SystemMessage; print('Message type imports OK')"
+          python -c "from claude_agent_sdk.types import HookContext, HookInput, HookJSONOutput; print('Hook type imports OK')"

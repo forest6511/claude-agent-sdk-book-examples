@@ -1,0 +1,33 @@
+# Claude Agent SDK 実践入門 — サンプルコード依存パッケージ
+# 動作確認バージョン: claude-agent-sdk v0.1.43 / Python 3.11
+#
+# インストール:
+#   pip install -r requirements.txt
+
+# ===== コア =====
+claude-agent-sdk==0.1.43
+anyio>=4.0.0
+anthropic>=0.45.0      # ch05/08/09 の直接 Messages API 呼び出し
+
+# ===== ツール依存 =====
+httpx>=0.27.0          # ch04: GitHub ツール（非同期 HTTP）
+python-dotenv>=1.0.0   # 環境変数の読み込み
+
+# ===== Web フレームワーク（ch03/ch06 のオプション例） =====
+# fastapi>=0.115.0
+# uvicorn>=0.30.0
+
+# ===== データ処理（ch08 BGL Group 例） =====
+# pandas>=2.2.0
+
+# ===== セッション永続化（ch06 のオプション例） =====
+# redis>=5.0.0
+# psycopg2-binary>=2.9.0
+
+# ===== MCP（ch04/ch08/ch10） =====
+mcp>=1.0.0
+
+# ===== テスト =====
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+anyio[trio]>=4.0.0
