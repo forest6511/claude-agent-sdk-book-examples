@@ -24,7 +24,7 @@ cd claude-agent-sdk-book-examples
 
 # 2. 仮想環境を作成（推奨）
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate  # Windows: .venv\Scriptsctivate
 
 # 3. 依存パッケージをインストール
 pip install -r requirements.txt
@@ -174,6 +174,8 @@ pip install claude-agent-sdk==0.1.43
 MIT License
 
 ## 関連リンク
+
+- [📖 書籍「Claude Agent SDK実践入門」（Amazon）](https://www.amazon.co.jp/dp/B0GQCV8SNT)
 
 - [Claude Agent SDK Python](https://github.com/anthropics/claude-agent-sdk-python)
 - [Anthropic 公式ドキュメント](https://docs.anthropic.com)
